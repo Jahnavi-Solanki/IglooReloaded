@@ -116,9 +116,8 @@ class Register {
             filePath = newPath;
         }
         // write the file
-        let writeStream = fs.createWriteStream(filePath);
-        writeStream.write(row[mapEntry.content]);
-        writeStream.end();
+        fs.writeFileSync(filePath, row[mapEntry.content]);
+        
         // update the register
         const hash = this._genHashFromPath(filePath);
         this.register[hash] = {

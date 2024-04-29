@@ -142,6 +142,8 @@ class SyncManager {
                         return;
                     }).catch((e) => {
                         console.error(e);
+                        vscode.window.setStatusBarMessage('IglooReloaded: Ready');
+                        vscode.window.showErrorMessage('Something went wrong. Check logs.');
                     });
                     return;
                 }
